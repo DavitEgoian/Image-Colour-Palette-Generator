@@ -1,55 +1,67 @@
 # 🎨 Image Colour Palette Generator
 
-A Python program that finds the most common colours in an uploaded image.
+A powerful Python desktop application that analyzes images to identify the most common colors and generates a professional hex-code palette.
 
 ## 📝 Project Overview
 
-Inspired by online palette tools like Flat UI Colors, this Python application uses local image processing to generate a designer-ready list of HEX swatches. Users simply load an image, view the extracted palette, and export it as a PNG.
+Inspired by design tools like Flat UI Colors, this application uses local image processing to generate designer-ready color swatches. Simply load an image, view the extracted colors in real-time, and export your palette for use in your design projects.
 
 ## 🚀 Features
 
-- **Top 10 Colour Extraction**  
-  Uses **PIL** and `collections.Counter` to find your image’s ten most frequent RGB values.
-
-- **Modern GUI**  
-  Beautiful, responsive interface built with **PyQt5**, featuring toolbars, progress indicators, and custom dialogs.
-
-- **Live Preview**  
-  See your uploaded image and its palette instantly in the app window.
-
-- **One-Click Export**  
-  Save the palette as a PNG file named `palette_YYYYMMDD_HHMMSS.png` by default.
+- **Smart Extraction**: Uses **PIL (Pillow)** and `collections.Counter` to algorithmically identify the top 10 most frequent RGB values in any image.
+- **Modern GUI**: A responsive interface built with **PyQt5**, featuring intuitive toolbars, progress indicators, and native file dialogs.
+- **Live Preview**: Instantly visualize your uploaded image alongside the generated color swatches.
+- **One-Click Export**: Save your palette as a high-quality PNG file (automatically named `palette_YYYYMMDD_HHMMSS.png`).
 
 ## 💻 Installation & Usage
 
-1. **Install dependencies**  
+### Prerequisites
+- Python 3.x
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/DavitEgoian/Image-Colour-Palette-Generator.git
+   cd Image-Colour-Palette-Generator
+   ```
+
+2. **Create a virtual environment (Recommended)**
+   ```bash
+   python -m venv venv
+   # Windows
+   venv\Scripts\activate
+   # macOS/Linux
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
    ```bash
    pip install Pillow PyQt5
    ```
 
-3. **Run the app**  
+4. **Run the application**
    ```bash
    python main.py
    ```
 
 ## 📂 Project Structure
 
-```
+```text
 image-palette-generator/
-├── color_extractor.py    # Extracts top N colours from a PIL.Image
-├── palette_saver.py      # Renders and saves swatch strip as PNG
-└── main.py               # PyQt5 GUI: load image, display palette, save output
+├── color_extractor.py    # Core logic: extracts top N colors from a PIL.Image
+├── palette_saver.py      # Export logic: renders and saves swatch strip as PNG
+└── main.py               # Interface: PyQt5 GUI for loading, viewing, and saving
 ```
 
 ## ⚙️ Customization
 
-- **Number of Colours**  
-  Adjust the `top_colors()` default argument in **`color_extractor.py`** (e.g. `num=5` for a five-colour palette).
+You can easily tweak the code to fit your needs:
 
-- **Swatch Size**  
-  Change `swatch_size` in **`PaletteSaver`** to modify each hue block’s dimensions.
+- **Number of Colors**: Adjust the `top_colors(num=10)` argument in `color_extractor.py` to change how many colors are generated.
+- **Swatch Dimensions**: Modify `swatch_size` in `palette_saver.py` to change the pixel size of the exported color blocks.
+- **UI Enhancements**: Edit `main.py` to add new toolbar icons, shortcuts, or drag-and-drop functionality.
 
-- **GUI Layout**  
-  Modify toolbar icons, button actions, or add drag-and-drop support by editing **`main.py`**.
+## 📄 License
 
----
+This project is open source and available for personal and educational use.
